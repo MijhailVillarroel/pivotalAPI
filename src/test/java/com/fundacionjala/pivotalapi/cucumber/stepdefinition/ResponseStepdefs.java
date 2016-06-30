@@ -1,6 +1,5 @@
 package com.fundacionjala.pivotalapi.cucumber.stepdefinition;
 
-import com.jayway.restassured.response.Response;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -9,11 +8,11 @@ import org.junit.Assert;
 /**
  * Created by mijhailvillarroel on 6/30/2016.
  */
-public class ThenProjectsStepdefs {
+public class ResponseStepdefs {
 
-    private ProjectsStepdefs projectsStepdefs;
+    private RequestStepdefs projectsStepdefs;
 
-    public ThenProjectsStepdefs(ProjectsStepdefs projectsStepdefs) {
+    public ResponseStepdefs(RequestStepdefs projectsStepdefs) {
         this.projectsStepdefs = projectsStepdefs;
     }
     @And("^I expect validate the values of the projects return by request$")
