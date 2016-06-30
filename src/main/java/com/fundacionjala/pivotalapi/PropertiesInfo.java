@@ -7,6 +7,7 @@ import java.util.Properties;
 
 
 public class PropertiesInfo {
+    public static final String SETTING_PROPERTIES = "setting.properties";
     private static PropertiesInfo instance;
 
     private Properties properties;
@@ -25,7 +26,7 @@ public class PropertiesInfo {
     private void loadProperties() {
         properties = new Properties();
         try {
-            FileInputStream fileInputStream = new FileInputStream("pivotal.properties");
+            FileInputStream fileInputStream = new FileInputStream(SETTING_PROPERTIES);
             properties.load(fileInputStream);
             fileInputStream.close();
         } catch (FileNotFoundException e) {
@@ -36,6 +37,7 @@ public class PropertiesInfo {
     private String getProperty(String propertyKey) {
         return properties.getProperty(propertyKey);
     }
+
     public String getBaseUrl(){
         return getProperty("urlApi");
     }
@@ -43,4 +45,6 @@ public class PropertiesInfo {
     public String getToken(){
         return getProperty("token");
     }
+
+    public String gitProxy() { return getProperty("proxy"); }
 }
