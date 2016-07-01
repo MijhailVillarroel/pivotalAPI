@@ -38,13 +38,24 @@ public class PropertiesInfo {
         return properties.getProperty(propertyKey);
     }
 
-    public String getBaseUrl(){
+    public String getBaseUrl() {
         return getProperty("urlApi");
     }
 
-    public String getToken(){
+    public String getToken() {
         return getProperty("token");
     }
 
-    public String gitProxy() { return getProperty("proxy"); }
+    public String getProxy() {
+        return getProperty("proxy");
+    }
+
+    public String getHeaderToken() {
+        return getProperty("headerToken");
+    }
+
+    public String getTypeJson() {
+        return getProperty("typeJson");
+    }
+
 }

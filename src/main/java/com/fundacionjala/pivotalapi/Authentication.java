@@ -24,9 +24,9 @@ public class Authentication {
     private void initApi() {
         baseURI = PropertiesInfo.getInstance().getBaseUrl();
         requestSpecification = given().relaxedHTTPSValidation()
-                .proxy("http://172.20.240.5:8080")
-                .header("X-TrackerToken", "cc208743093009d653e793ba384f6f16")
-                .contentType("application/json");
+                .proxy(PropertiesInfo.getInstance().getProxy())
+                .header(PropertiesInfo.getInstance().getHeaderToken(), PropertiesInfo.getInstance().getToken())
+                .contentType(PropertiesInfo.getInstance().getTypeJson());
     }
 
     public RequestSpecification getRequestSpecification() {

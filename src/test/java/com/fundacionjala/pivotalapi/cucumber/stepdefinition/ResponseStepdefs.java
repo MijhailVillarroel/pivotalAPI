@@ -23,8 +23,13 @@ public class ResponseStepdefs {
 
     @Then("^I expect Status the projects code (\\d+)$")
     public void iExpectStatusTheProjectsCode(int status) {
+        System.out.println(projectsStepdefs.getResponse().prettyPrint());
         Assert.assertEquals(status,projectsStepdefs.getResponse().getStatusCode());
     }
 
-
+    @And("^The description equals projects (.*)$")
+    public void theDescriptionEqualsProjectsCreatePivotal(String description) {
+      //  System.out.println(projectsStepdefs.getResponse().prettyPrint());
+        Assert.assertEquals(description, projectsStepdefs.getResponse().jsonPath().getString("description"));
+    }
 }

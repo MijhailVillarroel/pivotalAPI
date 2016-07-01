@@ -2,7 +2,7 @@ package com.fundacionjala.pivotalapi.cucumber.stepdefinition;
 
 import com.fundacionjala.pivotalapi.RequestManager;
 import com.jayway.restassured.response.Response;
-import cucumber.api.PendingException;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
@@ -17,10 +17,17 @@ public class RequestStepdefs {
 
     @When("^I send a post request (.*) with:$")
     public void iSendAGETRequestTheProjectsToProjects(String endPoint, Map<String, Object> values) {
-        System.out.println(values);
-
+        if ("/stories".equalsIgnoreCase(endPoint)){
+            String project = "/projects/"+response.jsonPath().get("id")+"/stories";
+            response = RequestManager.postRequest(project, values);
+        }
         response = RequestManager.postRequest(endPoint, values);
-        System.out.println(response.prettyPrint());
+    }
+
+    @When("^I send a put request (.*) with:$")
+    public void iSendAPUTRequestTheProjectsToProjects(String endPoint, Map<String, Object> values) {
+        final String idDelete = endPoint+"/"+response.jsonPath().get("id");
+        response = RequestManager.putRequest(idDelete, values);
     }
 //
 //    @When("^I send a GET request the projects to (\\/projects)$")
@@ -51,4 +58,20 @@ public class RequestStepdefs {
         return response;
     }
 
+    @Given("^I has be create a one (.*) whit:$")
+    public void iHasBeCreateAOneProjectsWhit(String endPoint, Map<String, Object> values) {
+        response = RequestManager.postRequest(endPoint, values);
+    }
+
+    @Given("^I send a delete request delete one (.*)$")
+    public void iSendAPutRequestDeleteOneProjects(String endPoint) {
+        final String idDelete = "/"+response.jsonPath().get("id");
+        response = RequestManager.deleteRequest(endPoint+idDelete, null);
+    }
+
+    @And("^I has be create story a one /stories whit:$")
+    public void iHasBeCreateStoryAOneStoriesWhit(String endPoint, Map<String, Object> values) {
+        String project = "/projects/"+response.jsonPath().get("id")+"/stories";
+        response = RequestManager.postRequest(project, values);
+    }
 }

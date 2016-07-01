@@ -24,6 +24,7 @@ Feature: Testing for login Pivotal page
 
   Scenario: Create pro
     Given I send a post request /projects with:
-      | name   | testing |
+      | name   | testing257989 |
       | public | true    |
     Then I expect Status the projects code 200
+
