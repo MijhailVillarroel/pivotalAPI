@@ -2,7 +2,7 @@ Feature: Testing for delete project in Pivotal
 
   Background: create a Project
     Given I has be create a one /projects whit:
-      | name   | 'testing Delete and Edit'|
+      | name   | '8787rtest'|
       | public | true               |
 
   Scenario: Delete projects
