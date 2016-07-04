@@ -1,5 +1,6 @@
 package com.fundacionjala.pivotalapi;
 
+import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.specification.RequestSpecification;
 
 import static com.jayway.restassured.RestAssured.baseURI;
@@ -26,7 +27,7 @@ public class Authentication {
         requestSpecification = given().relaxedHTTPSValidation()
                 .proxy(PropertiesInfo.getInstance().getProxy())
                 .header(PropertiesInfo.getInstance().getHeaderToken(), PropertiesInfo.getInstance().getToken())
-                .contentType(PropertiesInfo.getInstance().getTypeJson());
+                .contentType(ContentType.JSON);
     }
 
     public RequestSpecification getRequestSpecification() {

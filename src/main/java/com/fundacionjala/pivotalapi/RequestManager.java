@@ -33,6 +33,7 @@ public final class RequestManager {
     }
 
     public static Response deleteRequest(String endpoint) {
+        //LOGGER.info
         JsonParser jsonParser =new JsonParser();
        // System.out.println(endpoint);
         return REQUEST_SPECIFICATION.body("").when().delete(endpoint);

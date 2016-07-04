@@ -6,7 +6,7 @@ Feature: Testing for login Pivotal page
       | name   | TestCreateProjects23 |
       | public | true    |
     Then I expect Status the projects code 200
-    And The name equals projects TestCreateProjects
+    And The name equals projects TestCreateProjects23
     And The kind equals projects project
 #    And The public equals projects true
 

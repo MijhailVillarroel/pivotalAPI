@@ -14,7 +14,8 @@ public class DataBase {
             for (String endPontSplit : endPoint.split("/")) {
                 if (endPontSplit.matches("[\\[]+[\\w.]+[^\\(]+\\]")) {
                     String[] mapString = endPontSplit.split("^\\[|\\]|\\.");
-                    String value = "" + valuesResponse.get(mapString[1]).jsonPath().get(mapString[2]);
+                    StringBuilder value =new StringBuilder();
+                    value.append(valuesResponse.get(mapString[1]).jsonPath().get(mapString[2]));
                     endPoint = endPoint.replace(endPontSplit, value);
                 }
             }

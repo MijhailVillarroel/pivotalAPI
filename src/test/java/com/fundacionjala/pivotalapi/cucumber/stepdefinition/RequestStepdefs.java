@@ -39,7 +39,7 @@ public class RequestStepdefs {
         response = RequestManager.postRequest(endPoint, values);
     }
 
-    @Given("^I send a delete request delete one (.*)$")
+    @Given("^I send a delete request (.*)$")
     public void iSendAPutRequestDeleteOneProjects(String endPoint) {
         urlEndPoint = DataBase.endPoint(endPoint, project);
         response = RequestManager.deleteRequest(DataBase.endPoint(urlEndPoint, project));

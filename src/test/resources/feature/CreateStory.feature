@@ -3,7 +3,7 @@ Feature: Testing for create Stores
   Background: create a Project
     Given I send a post request /projects with:
       | name   | TestCreateProject |
-      | public | true    |
+      | public | true              |
     Then store Project1
 
   @deleteProjectWithStories

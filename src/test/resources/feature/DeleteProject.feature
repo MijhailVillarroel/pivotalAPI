@@ -3,11 +3,11 @@ Feature: Testing for delete project in Pivotal
   Background: create a Project
     Given I send a post request /projects with:
       | name   | 'Test Edit Project07889' |
-      | public | true    |
+      | public | true                     |
     Then store Project1
 
   Scenario: Delete projects
-    When I send a delete request delete one /projects/[Project1.id]
+    When I send a delete request /projects/[Project1.id]
     Then I expect Status the projects code 204
 
   @deleteProjectWithStories
