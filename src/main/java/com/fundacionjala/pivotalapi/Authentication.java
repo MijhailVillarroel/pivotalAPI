@@ -26,7 +26,7 @@ public class Authentication {
         requestSpecification = given().relaxedHTTPSValidation()
                 .proxy(PropertiesInfo.getInstance().getProxy())
                 .header(PropertiesInfo.getInstance().getHeaderToken(), PropertiesInfo.getInstance().getToken())
-                .contentType(PropertiesInfo.getInstance().getTypeJson());
+                .contentType(ContentType.JSON);
     }
 
     public RequestSpecification getRequestSpecification() {
