@@ -32,7 +32,7 @@ public final class RequestManager {
         return REQUEST_SPECIFICATION.body(jsonParser.parse(parameters.toString())).when().put(endpoint);
     }
 
-    public static Response deleteRequest(String endpoint, Map<String, Object> parameters ) {
+    public static Response deleteRequest(String endpoint) {
         JsonParser jsonParser =new JsonParser();
        // System.out.println(endpoint);
         return REQUEST_SPECIFICATION.body("").when().delete(endpoint);

@@ -19,16 +19,18 @@ public class Hook {
     public Hook (RequestStepdefs projectsStepdefs) {
         this.projectsStepdefs = projectsStepdefs;
     }
-    public void setUp() {
-        Map<String, Object> values = new HashMap<String, Object>();
-        values.put("name","projectPut");
-        values.put("public",true);
-        response = RequestManager.postRequest("/projects", values);
-    }
 
     @After("@deleteProject")
-    public void cleanUp() {
+    public void cleanUpProject() {
         final String idDelete = "projects"+"/"+projectsStepdefs.getResponse().jsonPath().get("id");
-        response = RequestManager.deleteRequest(idDelete, null);
+        response = RequestManager.deleteRequest(idDelete);
     }
+
+    @After("@deleteProjectWithStories")
+    public void cleanUp() {
+        final String idDelete = projectsStepdefs.getUrlEndPoint();
+        response = RequestManager.deleteRequest(idDelete);
+    }
+
+
 }
