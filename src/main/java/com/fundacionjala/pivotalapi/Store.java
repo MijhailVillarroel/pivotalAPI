@@ -1,13 +1,13 @@
 package com.fundacionjala.pivotalapi;
 
-import com.jayway.restassured.response.Response;
-
 import java.util.Map;
+
+import com.jayway.restassured.response.Response;
 
 /**
  * Created by mijhailvillarroel on 7/4/2016.
  */
-public class DataBase {
+public class Store {
 
     public static String endPoint(String endPoint, Map<String, Response> valuesResponse) {
         if (endPoint.contains("[")) {
