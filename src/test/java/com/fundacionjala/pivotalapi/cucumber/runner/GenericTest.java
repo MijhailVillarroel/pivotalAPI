@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 //this is how we want the results formatted. The only customizable line, different formats can be added or removed. I’ve included the most common ones for convenience
 @CucumberOptions(
-        format = {"pretty", "html:target/cucumber-html-report"},
+        format = {"pretty", "html:target/cucumber-html-report", "json:target/cucumber.json"},
         features = {"src/test/resources/feature/"},
         glue = {"com.fundacionjala.pivotalapi.cucumber.stepdefinition"}
 )

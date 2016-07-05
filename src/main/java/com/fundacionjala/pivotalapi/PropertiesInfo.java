@@ -5,9 +5,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
 
 public class PropertiesInfo {
     public static final String SETTING_PROPERTIES = "setting.properties";
+
+    private static final Logger LOGGER = Logger.getLogger(PropertiesInfo.class);
+
     private static PropertiesInfo instance;
 
     private Properties properties;
@@ -30,7 +35,9 @@ public class PropertiesInfo {
             properties.load(fileInputStream);
             fileInputStream.close();
         } catch (FileNotFoundException e) {
+            LOGGER.error("File nor Found :" + e.getMessage());
         } catch (IOException e) {
+            LOGGER.error("File not reading  :" + e.getMessage());
         }
     }
 
@@ -52,10 +59,6 @@ public class PropertiesInfo {
 
     public String getHeaderToken() {
         return getProperty("headerToken");
-    }
-
-    public String getTypeJson() {
-        return getProperty("typeJson");
     }
 
 }

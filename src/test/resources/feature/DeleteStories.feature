@@ -2,7 +2,7 @@ Feature: Testing for delete project in Pivotal
 
   Background: create a Project
     Given I send a post request /projects with:
-      | name   | TestCreateProjects2790 |
+      | name   | TestCreateProjects2796 |
       | public | true                   |
     And store Project1
     And I send a post request /projects/[Project1.id]/stories with:

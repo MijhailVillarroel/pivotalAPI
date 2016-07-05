@@ -1,6 +1,6 @@
 package com.fundacionjala.pivotalapi.cucumber.stepdefinition;
 
-import com.fundacionjala.pivotalapi.DataBase;
+import com.fundacionjala.pivotalapi.Store;
 import com.fundacionjala.pivotalapi.RequestManager;
 import com.jayway.restassured.response.Response;
 
@@ -24,13 +24,13 @@ public class RequestStepdefs {
 
     @When("^I send a post request (.*) with:$")
     public void iSendAGETRequestTheProjectsToProjects(String endPoint, Map<String, Object> values) {
-        urlEndPoint = DataBase.endPoint(endPoint, project);
+        urlEndPoint = Store.endPoint(endPoint, project);
         response = RequestManager.postRequest(urlEndPoint, values);
     }
 
     @When("^I send a put request (.*) with:$")
     public void iSendAPUTRequestTheProjectsToProjects(String endPoint, Map<String, Object> values) {
-        urlEndPoint = DataBase.endPoint(endPoint, project);
+        urlEndPoint = Store.endPoint(endPoint, project);
         response = RequestManager.putRequest(urlEndPoint, values);
     }
 
@@ -41,8 +41,8 @@ public class RequestStepdefs {
 
     @Given("^I send a delete request (.*)$")
     public void iSendAPutRequestDeleteOneProjects(String endPoint) {
-        urlEndPoint = DataBase.endPoint(endPoint, project);
-        response = RequestManager.deleteRequest(DataBase.endPoint(urlEndPoint, project));
+        urlEndPoint = Store.endPoint(endPoint, project);
+        response = RequestManager.deleteRequest(Store.endPoint(urlEndPoint, project));
     }
 
     @And("^I has be create story a one /stories whit:$")
